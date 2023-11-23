@@ -1,0 +1,64 @@
+import java.util.*;
+public class floyd_algo
+{
+public static void main(String[] args)
+{
+Scanner sc = new Scanner(System.in);
+System.out.println("enter the number of rows and column");
+int a = sc.nextInt();
+int b = sc.nextInt();
+int [][]mat=new int[a][b];
+int [][]mat1=new int[a][b];
+System.out.println("enter the matrix");
+for(int i=0;i<a;i++)
+{
+for(int j=0;j<b;j++)
+{
+mat[i][j]=sc.nextInt();
+}
+}
+System.out.println("your matrix is :");
+for(int i=0;i<a;i++)
+{
+for(int j=0;j<b;j++)
+{
+System.out.print(mat[i][j]+" ");
+}
+System.out.println("");
+}
+for(int k=0;k<a;k++)
+{
+for(int i=0;i<b;i++)
+{
+for(int j=0;j<b;j++)
+{
+if(i==k||j==k||i==j)
+{
+mat1[i][j]=mat[i][j];
+}
+else
+{
+mat1[i][j]= Math.min(mat[i][j],mat[i][k]+mat[k][j]);
+}
+}
+}
+for(int i=0;i<b;i++)
+{
+for(int j=0;j<b;j++)
+{
+mat[i][j]=mat1[i][j];
+}
+}
+}
+System.out.println(" your sorted matrix is:");
+for(int i=0;i<a;i++)
+
+{
+for(int j=0;j<b;j++)
+{
+System.out.print(mat[i][j]+" ");
+}
+System.out.println("");
+}
+}
+}
